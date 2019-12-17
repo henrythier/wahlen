@@ -69,5 +69,5 @@ def getData(inst):
 for i in insts:
   results = getData(i)
   results.to_csv(
-    r'' + i + '.csv',
+    r'./data/' + i + '.csv',
     index=None, header=True, sep=";")
