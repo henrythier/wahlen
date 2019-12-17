@@ -1,3 +1,4 @@
+import os
 import requests
 import lxml.html as lh
 import pandas as pd
@@ -12,6 +13,8 @@ insts = [
   'insa',
   'yougov'
 ]
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def getUrl(inst):
   return root + inst + '.htm'
@@ -69,5 +72,5 @@ def getData(inst):
 for i in insts:
   results = getData(i)
   results.to_csv(
-    r'./data/' + i + '.csv',
+    dir_path + '/data/' + i + '.csv',
     index=None, header=True, sep=";")
