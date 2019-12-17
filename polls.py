@@ -61,15 +61,13 @@ def getData(inst):
   polls = pd.DataFrame(data)
   polls['Institut'] = inst
 
-  # drop last row as its bundestagswahl
+  # drop bundestagswahl rows
   polls = polls.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
   return polls
 
-# print one header
+# save polling data to csv
 for i in insts:
   results = getData(i)
   results.to_csv(
-    r'/Users/henrythierhoff/Desktop/polls/' + i + '.csv',
+    r'' + i + '.csv',
     index=None, header=True, sep=";")
-
-
